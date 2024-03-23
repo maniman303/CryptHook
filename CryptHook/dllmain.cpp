@@ -4,8 +4,10 @@
 
 bool logging = false;
 
-void init_log()
+void init_log(bool enable)
 {
+	logging = enable;
+
 	std::ofstream logFile("crypthooks.log", std::ios::out);
 
 	logFile << "CryptHook Bypass" << std::endl;
@@ -48,9 +50,8 @@ BOOL APIENTRY DllMain(HMODULE hModule,
 #if _DEBUG
 		AllocConsole();
 		freopen("CON", "w", stdout);
-		logging = true;
 #endif
-		init_log();
+		init_log(true);
 
 		if (MH_Initialize() != MH_OK)
 		{
