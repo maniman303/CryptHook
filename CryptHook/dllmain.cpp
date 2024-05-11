@@ -8,7 +8,7 @@ void init_log(bool enable)
 {
 	logging = enable;
 
-	std::ofstream logFile("crypthooks.log", std::ios::out);
+	std::ofstream logFile("crypthook.log", std::ios::out);
 
 	logFile << "CryptHook Bypass" << std::endl;
 
